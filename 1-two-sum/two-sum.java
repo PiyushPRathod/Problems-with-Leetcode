@@ -1,16 +1,32 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) 
     {
+        // // Brute Force Solution
+        // for(int i = 0; i < nums.length; i++)
+        // {
+        //     for(int j = i + 1; j < nums.length; j++)
+        //     {
+        //         if(nums[i] + nums[j] == target)
+        //         {
+        //            return new int[] {i , j};
+        //         }
+        //     }
+        // }
+        // return new int[] {};  
+
+        // HashMap solution
+        HashMap<Integer, Integer> map = new HashMap<>();
+
         for(int i = 0; i < nums.length; i++)
         {
-            for(int j = i + 1; j < nums.length; j++)
+            int complement = target - nums[i];
+            if(map.containsKey(complement))
             {
-                if(nums[i] + nums[j] == target)
-                {
-                   return new int[] {i , j};
-                }
+                return new int[] {map.get(complement), i};
             }
-        }
-        return new int[] {};   
+            map.put(nums[i], i);
+        } 
+
+        return new int[] {};
     }
 }
