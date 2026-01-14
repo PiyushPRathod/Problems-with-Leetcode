@@ -1,18 +1,49 @@
-class Solution {
-    public boolean isAnagram(String s, String t) 
+// Optimal Solution
+class Solution
+{
+    public boolean isAnagram(String s, String t)
     {
-        //Sorting method
-        if(s.length() == 0 || t.length() == 0)
-        {
+        if(s.length() != t.length())
             return false;
-        }        
+        
+        int[] count = new int[26];
 
-        char[] charArray1 = s.toCharArray();
-        char[] charArray2 = t.toCharArray();
+        for(int i = 0; i < s.length(); i++)
+        {
+            count[s.charAt(i) - 'a']++;
+            count[t.charAt(i) - 'a']--;
+        }
 
-        Arrays.sort(charArray1);
-        Arrays.sort(charArray2);
+        for(int c : count)
+        {
+            if(c != 0)
+                return false;
+        }
 
-        return Arrays.equals(charArray1, charArray2);
+        return true;
     }
 }
+
+
+
+
+
+// // Brute Force
+// class Solution {
+//     public boolean isAnagram(String s, String t) 
+//     {
+//         //Sorting method
+//         if(s.length() == 0 || t.length() == 0)
+//         {
+//             return false;
+//         }        
+
+//         char[] charArray1 = s.toCharArray();
+//         char[] charArray2 = t.toCharArray();
+
+//         Arrays.sort(charArray1);
+//         Arrays.sort(charArray2);
+
+//         return Arrays.equals(charArray1, charArray2);
+//     }
+// }
