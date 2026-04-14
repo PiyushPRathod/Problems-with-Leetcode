@@ -2,7 +2,7 @@ class Solution {
     public int[] twoSum(int[] numbers, int target) 
     {
         HashMap<Integer, Integer> map = new HashMap<>();
-        
+
         for(int i = 0; i < numbers.length; i++)
         {
             int complement = target - numbers[i];
@@ -13,7 +13,6 @@ class Solution {
             map.put(numbers[i], i);
         }
 
-        return new int[] {};
-                
+        return new int[] {};         
     }
 }
