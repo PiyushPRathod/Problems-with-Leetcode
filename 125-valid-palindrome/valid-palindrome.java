@@ -9,10 +9,8 @@ class Solution {
             // skip non-alphanumeric on the right
             while (i < j && !Character.isLetterOrDigit(s.charAt(j))) j--;
 
-            char left = Character.toLowerCase(s.charAt(i));
-            char right = Character.toLowerCase(s.charAt(j));
-
-            if (left != right) return false;
+            if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) 
+                return false;
 
             i++;
             j--;
