@@ -1,39 +1,19 @@
-class Solution {
+class Solution 
+{
     public int[] twoSum(int[] nums, int target) 
     {
-        // Optimal Solution
-
-        HashMap<Integer, Integer> map = new HashMap<>();
-
+        // Brute force
         for(int i = 0; i < nums.length; i++)
         {
-            int complement = target - nums[i];
-
-            if(map.containsKey(complement))
+            for(int j = i + 1; j < nums.length; j++)
             {
-                return new int[] {map.get(complement), i};
+                if(nums[i] + nums[j] == target)
+                {
+                    return new int[] {i, j};
+                }
             }
-
-            map.put(nums[i], i);
         }
 
-        return new int[]{};
-
-
-        // // Brute force
-
-        // for(int i = 0; i < nums.length; i++)
-        // {
-        //     for(int j = i + 1; j < nums.length; j++)
-        //     {
-        //         if(nums[i] + nums[j] == target)
-        //         {
-        //             return new int[] {i, j};
-        //         }
-        //     }
-        // }
-
-        // return new int[]{}; 
-        
+        return new int[] {};
     }
 }
