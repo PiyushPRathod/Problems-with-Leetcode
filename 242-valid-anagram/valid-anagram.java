@@ -1,7 +1,7 @@
 class Solution {
     public boolean isAnagram(String s, String t) 
     {
-        // Optimal Solutions
+        // Brute Force Solutions
         if(s.length() != t.length())
         {
             return false;
@@ -26,7 +26,7 @@ class Solution {
         return true;
 
 
-        // // Brute Force
+        // // Optimal Force
         // if(s.length() != t.length())
         // {
         //     return false;
